@@ -8,6 +8,7 @@ homepage = "https://github.com/phish3y/wzdx-rs"
 repository = "https://github.com/phish3y/wzdx-rs"
 
 [dependencies]
+geo = "0.28.0"
+geojson = "0.24.1"
 serde = { version = "1.0.203", features = ["derive"] }
 serde_json = "1.0.120"
-
