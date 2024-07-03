@@ -1,12 +1,13 @@
 use geo::Geometry;
 use serde::{Deserialize, Serialize};
 
+use super::shared::FeedInfo;
+
 #[derive(Debug, Deserialize, Serialize)]
 pub struct WorkZoneFeed {
-    #[serde(rename = "type")]
-    pub geojson_type: String,
-    pub features: Vec<RoadEventFeature>,
+    pub r#type: String,
     pub feed_info: Option<FeedInfo>,
+    pub features: Vec<RoadEventFeature>,
     pub road_event_feed_info: Option<FeedInfo>,
     pub bbox: Option<Vec<f64>>
 }
@@ -14,8 +15,7 @@ pub struct WorkZoneFeed {
 #[derive(Debug, Deserialize, Serialize)]
 pub struct RoadEventFeature {
     pub id: String,
-    #[serde(rename = "type")]
-    pub geojson_object_type: String,
+    pub r#type: String,
     pub properties: Properties,
     #[serde(deserialize_with = "geojson::de::deserialize_geometry")]
     pub geometry: Geometry
@@ -46,8 +46,7 @@ pub struct RoadEventCoreDetails {
 
 #[derive(Debug, Deserialize, Serialize)]
 pub struct RelatedRoadEvent {
-    #[serde(rename = "type")]
-    pub road_event_type: String,
+    pub r#type: String,
     pub id: String
 }
 
@@ -98,8 +97,7 @@ pub struct WorkerPresence {
 
 #[derive(Debug, Deserialize, Serialize)]
 pub struct Restriction {
-    #[serde(rename = "type")]
-    pub restriction_type: String,
+    pub r#type: String,
     pub option: Option<f64>,
     pub unit: Option<String>
 }
@@ -113,8 +111,7 @@ pub struct TypeOfWOrk {
 #[derive(Debug, Deserialize, Serialize)]
 pub struct Lane {
     pub status: String,
-    #[serde(rename = "type")]
-    pub lane_type: String,
+    pub r#type: String,
     pub order: u64,
     pub lane_number: Option<u64>,
     pub restrictions: Option<Vec<Restriction>>
@@ -139,29 +136,4 @@ pub struct DetourRoadEvent {
     pub event_status: Option<String>, // DEPRECATED
     pub start_date_accuracy: Option<String>, // DEPRECATED
     pub end_date_accuracy: Option<String> // DEPRECATED
-}
-
-#[derive(Debug, Deserialize, Serialize)]
-pub struct FeedInfo {
-    pub update_date: String,
-    pub version: String,
-    pub publisher: String,
-    pub data_sources: Vec<FeedDataSource>,
-    pub contact_name: Option<String>,
-    pub contact_email: Option<String>,
-    pub update_frequency: Option<u64>,
-    pub license: Option<String>
-}
-
-#[derive(Debug, Deserialize, Serialize)]
-pub struct FeedDataSource {
-    pub data_source_id: String,
-    pub organization_name: String,
-    pub contact_name: Option<String>,
-    pub contact_email: Option<String>,
-    pub update_frequency: Option<u64>,
-    pub update_date: Option<String>,
-    pub lrs_type: Option<String>, // DEPRECATED
-    pub lrs_url: Option<String>, // DEPRECATED
-    pub location_verify_method: Option<String> // DEPRECATED
 }
