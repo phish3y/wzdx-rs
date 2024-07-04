@@ -7,7 +7,7 @@ license = "MIT OR Apache-2.0"
 keywords = ["wzdx"]
 homepage = "https://github.com/phish3y/wzdx-rs"
 repository = "https://github.com/phish3y/wzdx-rs"
-readme = "READEME.md"
+readme = "README.md"
 
 [dependencies]
 geo = "0.28.0"
