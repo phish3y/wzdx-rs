@@ -8,6 +8,10 @@ keywords = ["wzdx"]
 homepage = "https://github.com/phish3y/wzdx-rs"
 repository = "https://github.com/phish3y/wzdx-rs"
 readme = "README.md"
+include = [
+    "**/*.rs",
+    "Cargo.toml",
+]
 
 [dependencies]
 geo = "0.28.0"
