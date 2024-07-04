@@ -12,6 +12,7 @@ include = [
     "**/*.rs",
     "Cargo.toml",
 ]
+exclude = ["tests/*"]
 
 [dependencies]
 geo = "0.28.0"
