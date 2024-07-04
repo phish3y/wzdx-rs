@@ -3,7 +3,7 @@ use serde::{Deserialize, Serialize};
 
 use super::shared::FeedInfo;
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Deserialize, Serialize)]
 pub struct WorkZoneFeed {
     pub r#type: String,
     pub feed_info: Option<FeedInfo>,
@@ -12,7 +12,7 @@ pub struct WorkZoneFeed {
     pub bbox: Option<Vec<f64>>
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Deserialize, Serialize)]
 pub struct RoadEventFeature {
     pub id: String,
     pub r#type: String,
@@ -21,7 +21,7 @@ pub struct RoadEventFeature {
     pub geometry: Geometry
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Deserialize, Serialize)]
 pub struct Properties {
     pub core_details: RoadEventCoreDetails,
     #[serde(flatten)]
@@ -30,7 +30,7 @@ pub struct Properties {
     pub detour: Option<DetourRoadEvent>
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Deserialize, Serialize)]
 pub struct RoadEventCoreDetails {
     pub event_type: String,
     pub data_source_id: String,
@@ -45,13 +45,13 @@ pub struct RoadEventCoreDetails {
     pub relationship: Option<Relationship>
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Deserialize, Serialize)]
 pub struct RelatedRoadEvent {
     pub r#type: String,
     pub id: String
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Deserialize, Serialize)]
 pub struct Relationship {
     pub first: Option<Vec<String>>,
     pub next: Option<Vec<String>>,
@@ -59,7 +59,7 @@ pub struct Relationship {
     pub children: Option<Vec<String>>
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Deserialize, Serialize)]
 pub struct WorkZoneRoadEvent {
     pub start_date: String,
     pub end_date: String,
@@ -92,7 +92,7 @@ pub struct WorkZoneRoadEvent {
     pub ending_accuracy: Option<String>
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Deserialize, Serialize)]
 pub struct WorkerPresence {
     pub are_workers_present: bool,
     pub method: Option<String>,
@@ -101,20 +101,20 @@ pub struct WorkerPresence {
     pub definition: Option<Vec<String>>
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Deserialize, Serialize)]
 pub struct Restriction {
     pub r#type: String,
     pub option: Option<f64>,
     pub unit: Option<String>
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Deserialize, Serialize)]
 pub struct TypeOfWOrk {
     pub type_name: String,
     pub is_architectural_change: Option<bool>
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Deserialize, Serialize)]
 pub struct Lane {
     pub status: String,
     pub r#type: String,
@@ -123,13 +123,13 @@ pub struct Lane {
     pub restrictions: Option<Vec<Restriction>>
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Deserialize, Serialize)]
 pub struct CdsCurbZonesReference {
     pub cds_curb_zone_ids: Vec<String>,
     pub cds_curbs_api_url: String
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Deserialize, Serialize)]
 pub struct DetourRoadEvent {
     pub start_date: String,
     pub end_date: String,

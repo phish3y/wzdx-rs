@@ -1,6 +1,6 @@
 use serde::{Deserialize, Serialize};
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Deserialize, Serialize)]
 pub struct FeedInfo {
     pub update_date: String,
     pub version: String,
@@ -12,7 +12,7 @@ pub struct FeedInfo {
     pub license: Option<String>
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Deserialize, Serialize)]
 pub struct FeedDataSource {
     pub data_source_id: String,
     pub organization_name: String,
