@@ -11,7 +11,6 @@ fn scenarios() {
         let mut contents = String::new();
         f.read_to_string(&mut contents).unwrap();
 
-        let h: WorkZoneFeed =  serde_json::from_str(&contents).unwrap();
-        println!("{:?}", h);
+        let _: WorkZoneFeed =  serde_json::from_str(&contents).unwrap();
     }
 }

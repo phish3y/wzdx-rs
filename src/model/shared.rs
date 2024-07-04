@@ -20,7 +20,10 @@ pub struct FeedDataSource {
     pub contact_email: Option<String>,
     pub update_frequency: Option<u64>,
     pub update_date: Option<String>,
-    pub lrs_type: Option<String>, // DEPRECATED
-    pub lrs_url: Option<String>, // DEPRECATED
-    pub location_verify_method: Option<String> // DEPRECATED
+    #[deprecated]
+    pub lrs_type: Option<String>,
+    #[deprecated]
+    pub lrs_url: Option<String>,
+    #[deprecated]
+    pub location_verify_method: Option<String>
 }

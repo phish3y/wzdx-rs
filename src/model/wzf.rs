@@ -41,7 +41,8 @@ pub struct RoadEventCoreDetails {
     pub description: Option<String>,
     pub creation_date: Option<String>,
     pub update_date: Option<String>,
-    pub relationship: Option<Relationship> // DEPRECATED
+    #[deprecated]
+    pub relationship: Option<Relationship>
 }
 
 #[derive(Debug, Deserialize, Serialize)]
@@ -79,11 +80,16 @@ pub struct WorkZoneRoadEvent {
     pub types_of_work: Option<Vec<TypeOfWOrk>>,
     pub lanes: Option<Vec<Lane>>,
     pub impacted_cds_curb_zones: Option<Vec<CdsCurbZonesReference>>,
-    pub event_status: Option<String>, // DEPRECATED
-    pub start_date_accuracy: Option<String>, // DEPRECATED
-    pub end_date_accuracy: Option<String>, // DEPRECATED
-    pub beginning_accuracy: Option<String>, // DEPRECATED
-    pub ending_accuracy: Option<String> // DEPRECATED
+    #[deprecated]
+    pub event_status: Option<String>,
+    #[deprecated]
+    pub start_date_accuracy: Option<String>,
+    #[deprecated]
+    pub end_date_accuracy: Option<String>,
+    #[deprecated]
+    pub beginning_accuracy: Option<String>,
+    #[deprecated]
+    pub ending_accuracy: Option<String>
 }
 
 #[derive(Debug, Deserialize, Serialize)]
@@ -133,7 +139,10 @@ pub struct DetourRoadEvent {
     pub ending_milepost: Option<f64>,
     pub is_start_date_verified: Option<bool>,
     pub is_end_date_verified: Option<bool>,
-    pub event_status: Option<String>, // DEPRECATED
-    pub start_date_accuracy: Option<String>, // DEPRECATED
-    pub end_date_accuracy: Option<String> // DEPRECATED
+    #[deprecated]
+    pub event_status: Option<String>,
+    #[deprecated]
+    pub start_date_accuracy: Option<String>,
+    #[deprecated]
+    pub end_date_accuracy: Option<String>
 }

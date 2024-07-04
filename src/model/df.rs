@@ -35,7 +35,11 @@ pub struct Properties {
     #[serde(flatten)]
     pub hybrid_sign: Option<HybridSign>,
     #[serde(flatten)]
-    pub location_marker: Option<LocationMarker>
+    pub location_marker: Option<LocationMarker>,
+    #[serde(flatten)]
+    pub traffic_sensor: Option<TrafficSensor>,
+    #[serde(flatten)]
+    pub traffic_signal: Option<TrafficSignal>
 }
 
 #[derive(Debug, Deserialize, Serialize)]
@@ -63,7 +67,8 @@ pub struct FieldDeviceCoreDetails {
 #[derive(Debug, Deserialize, Serialize)]
 pub struct ArrowBoard {
     pub pattern: String,
-    pub is_moving: Option<bool>, // DEPRECATED
+    #[deprecated]
+    pub is_moving: Option<bool>,
     pub is_in_transport_position: Option<bool>
 }
 
@@ -101,4 +106,28 @@ pub struct LocationMarker {
 pub struct MarkedLocationType {
     pub r#type: String,
     pub road_event_id: Option<String>
+}
+
+#[derive(Debug, Deserialize, Serialize)]
+pub struct TrafficSensor {
+    pub collection_interval_start_date: String,
+    pub collection_interval_end_date: String,
+    pub average_speed_kph: Option<f64>,
+    pub volume_vph: Option<f64>,
+    pub occupancy_percent: Option<f64>,
+    pub lane_data: Option<Vec<TrafficSensorLaneData>>
+}
+
+#[derive(Debug, Deserialize, Serialize)]
+pub struct TrafficSensorLaneData {
+    pub lane_order: u64,
+    pub road_event_id: Option<String>,
+    pub average_speed_kph: Option<f64>,
+    pub volume_vph: Option<f64>,
+    pub occupancy_percent: Option<f64>
+}
+
+#[derive(Debug, Deserialize, Serialize)]
+pub struct TrafficSignal {
+    pub mode: String
 }

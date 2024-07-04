@@ -1,11 +1,13 @@
 [package]
 name = "wzdx-rs"
+description = "Serialize and deserialize WZDX"
 version = "0.1.0"
 edition = "2021"
 license = "MIT"
 keywords = ["wzdx"]
 homepage = "https://github.com/phish3y/wzdx-rs"
 repository = "https://github.com/phish3y/wzdx-rs"
+readme = "READEME.md"
 
 [dependencies]
 geo = "0.28.0"
