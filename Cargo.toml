@@ -1,6 +1,6 @@
 [package]
-name = "wzdx-rs"
-description = "Serialize and deserialize WZDX"
+name = "wzdx"
+description = "Rust models for serializing/deserializing WZDx 4.2"
 version = "0.1.0"
 edition = "2021"
 license = "MIT OR Apache-2.0"

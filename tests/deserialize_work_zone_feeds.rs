@@ -1,6 +1,6 @@
 use std::{env, fs::{self, File}, io::Read};
 
-use wzdx_rs::model::wzf::WorkZoneFeed;
+use wzdx::model::wzf::WorkZoneFeed;
 
 #[test]
 fn scenarios() {

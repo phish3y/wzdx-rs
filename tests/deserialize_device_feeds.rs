@@ -1,6 +1,6 @@
 use std::{env, fs::{self, File}, io::Read};
 
-use wzdx_rs::model::df::DeviceFeed;
+use wzdx::model::df::DeviceFeed;
 
 #[test]
 fn scenarios() {
