@@ -3,7 +3,7 @@ use serde::{Deserialize, Serialize};
 
 use super::shared::FeedInfo;
 
-#[derive(Clone, Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, PartialEq, Serialize)]
 pub struct DeviceFeed {
     pub r#type: String,
     pub feed_info: FeedInfo,
@@ -11,7 +11,7 @@ pub struct DeviceFeed {
     pub bbox: Option<Vec<f64>>
 }
 
-#[derive(Clone, Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 pub struct FieldDeviceFeature {
     pub id: String,
     pub r#type: String,
@@ -21,7 +21,7 @@ pub struct FieldDeviceFeature {
     pub bbox: Option<Vec<f64>>
 }
 
-#[derive(Clone, Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, PartialEq, PartialOrd, Serialize)]
 pub struct Properties {
     pub core_details: FieldDeviceCoreDetails,
     #[serde(flatten)]
@@ -42,7 +42,7 @@ pub struct Properties {
     pub traffic_signal: Option<TrafficSignal>
 }
 
-#[derive(Clone, Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, PartialEq, PartialOrd, Serialize)]
 pub struct FieldDeviceCoreDetails {
     pub device_type: String,
     pub data_source_id: String,
@@ -64,7 +64,7 @@ pub struct FieldDeviceCoreDetails {
     pub velocity_kph: Option<f64>
 }
 
-#[derive(Clone, Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize)]
 pub struct ArrowBoard {
     pub pattern: String,
     #[deprecated]
@@ -72,43 +72,43 @@ pub struct ArrowBoard {
     pub is_in_transport_position: Option<bool>
 }
 
-#[derive(Clone, Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize)]
 pub struct Camera {
     pub image_url: Option<String>,
     pub image_timestamp: Option<String>
 }
 
-#[derive(Clone, Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize)]
 pub struct DynamicMessageSign {
     pub message_multi_string: String
 }
 
-#[derive(Clone, Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize)]
 pub struct FlashingBeacon {
     pub function: String,
     pub is_flashing: Option<bool>,
     pub sign_text: Option<String>
 }
 
-#[derive(Clone, Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize)]
 pub struct HybridSign {
     pub dynamic_message_function: String,
     pub dynamic_message_text: Option<String>,
     pub static_sign_text: Option<String>
 }
 
-#[derive(Clone, Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize)]
 pub struct LocationMarker {
     pub marked_locations: Vec<MarkedLocationType>
 }
 
-#[derive(Clone, Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize)]
 pub struct MarkedLocationType {
     pub r#type: String,
     pub road_event_id: Option<String>
 }
 
-#[derive(Clone, Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, PartialEq, PartialOrd, Serialize)]
 pub struct TrafficSensor {
     pub collection_interval_start_date: String,
     pub collection_interval_end_date: String,
@@ -118,7 +118,7 @@ pub struct TrafficSensor {
     pub lane_data: Option<Vec<TrafficSensorLaneData>>
 }
 
-#[derive(Clone, Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, PartialEq, PartialOrd, Serialize)]
 pub struct TrafficSensorLaneData {
     pub lane_order: u64,
     pub road_event_id: Option<String>,
@@ -127,7 +127,7 @@ pub struct TrafficSensorLaneData {
     pub occupancy_percent: Option<f64>
 }
 
-#[derive(Clone, Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize)]
 pub struct TrafficSignal {
     pub mode: String
 }
