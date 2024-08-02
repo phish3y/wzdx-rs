@@ -119,6 +119,7 @@ pub struct Lane {
     pub status: String,
     pub r#type: String,
     pub order: u64,
+    #[deprecated]
     pub lane_number: Option<u64>,
     pub restrictions: Option<Vec<Restriction>>
 }
