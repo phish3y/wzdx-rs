@@ -1,4 +1,4 @@
-# wzdx-rs
+# wzdx-rs [![Rust Report Card](https://rust-reportcard.xuri.me/badge/github.com/phish3y/wzdx-rs)](https://rust-reportcard.xuri.me/report/github.com/phish3y/wzdx-rs)
 Rust models for serializing/deserializing [WZDx](https://github.com/usdot-jpo-ode/wzdx) 4.2
 
 ## License
